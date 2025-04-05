@@ -10,6 +10,14 @@ function getelementbyIdtext(id) {
   return getValue;
 }
 
+function toggleButton(id) {
+  document.getElementById("mcard").classList.add("hidden");
+  document.getElementById("historyDetails").classList.add("hidden");
+  // remove hidden class
+  document.getElementById(id).classList.remove("hidden");
+  // document.getElementById(id).classList.add("active");
+}
+
 document.getElementById("donateNow").addEventListener("click", function (e) {
   e.preventDefault();
   console.log("added");
@@ -26,6 +34,10 @@ document.getElementById("donateNow").addEventListener("click", function (e) {
     document.getElementById("donationAm").value = "";
     const finalBalance = mainB - getAm;
     document.getElementById("main-balance").innerText = finalBalance;
+    // add to history
+    const p = document.createElement("p");
+    p.innerText = `${getAm} Donated to Noakhali`;
+    document.getElementById("historyDetails").appendChild(p);
   } else {
     alert("Please Input Valid Number");
   }
@@ -51,6 +63,10 @@ document
       document.getElementById("donationAmFeni").value = "";
       const finalBalance = mainB - getAm;
       document.getElementById("main-balance").innerText = finalBalance;
+      // add to history
+      const p = document.createElement("p");
+      p.innerText = `${getAm} Donated to Feni`;
+      document.getElementById("historyDetails").appendChild(p);
     } else {
       alert("Please Input Valid Number");
     }
@@ -73,6 +89,10 @@ document.getElementById("donateNowSyl").addEventListener("click", function (e) {
     document.getElementById("dsyL").value = "";
     const finalBalance = mainB - getAm;
     document.getElementById("main-balance").innerText = finalBalance;
+    // add to history
+    const p = document.createElement("p");
+    p.innerText = `${getAm} Donated to Sylhet`;
+    document.getElementById("historyDetails").appendChild(p);
   } else {
     alert("Please Input Valid Number");
   }
